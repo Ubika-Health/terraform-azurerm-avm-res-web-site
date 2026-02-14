@@ -1053,6 +1053,12 @@ resource "azurerm_linux_web_app" "this" {
       update = timeouts.value.update
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      site_config[0].application_stack,
+    ]
+  }
 }
 
 # resource "azapi_update_resource" "linux_webapp" {
