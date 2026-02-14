@@ -861,6 +861,10 @@ resource "azurerm_linux_function_app" "this" {
   lifecycle {
     ignore_changes = [
       site_config[0].application_stack,
+      app_settings["AzureWebJobsStorage"],
+      app_settings["AzureWebJobsStorage__accountName"],
+      storage_account_name,
+      storage_uses_managed_identity,
     ]
   }
 }
