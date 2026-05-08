@@ -39,6 +39,7 @@ resource "azapi_resource" "this" {
   lifecycle {
     ignore_changes = [
       tags,
+      body.properties.siteConfig.linuxFxVersion,
     ]
   }
 }
