@@ -157,6 +157,13 @@ resource "azapi_resource" "this" {
       identity_ids = identity.value.identity_ids
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      tags,
+      body.properties.siteConfig.linuxFxVersion,
+    ]
+  }
 }
 
 # Slot app settings
